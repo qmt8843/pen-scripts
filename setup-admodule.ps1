@@ -2,7 +2,6 @@
 
 $dirUrl = "http://" + $urlGet + "your.url.here:8080/ADModule/"
 $destFolder = $destGet + "\ADModule"
-
 if (!(Test-Path -Path $destFolder)) {
     New-Item -ItemType Directory -Path $destFolder | Out-Null
 }
