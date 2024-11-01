@@ -3,7 +3,7 @@
 $dirUrl = "http://your.url.here:port/ADModule/"
 $destFolder "where\you\want\to\save\files\to"
 
-if (!(Test-Path -Path $destFolder)){
+if (!(Test-Path -Path $destFolder)) {
     New-Item -ItemType Directory -Path $destFolder | Out-Null
 }
 
@@ -22,10 +22,10 @@ function Download-FilesRecursively {
     $links = $response.Links | WHere-Object { $_.href -notmatch "^\.\.?$" }
 
     foreach ($link in $links){
-        $linkUrl = $url.TrimEnd("/") + $link.href
+        $linkUrl = $url.TrimEnd("/") + "/" + $link.href
         $localFilePath = Join-Path $targetDir $link.href
-        if ($link.tagName -eq "A" -and $link.href -match "/$"){
-            if (!(Test-Path -Path $localFilePath)){
+        if ($link.tagName -eq "A" -and $link.href -match "/$") {
+            if (!(Test-Path -Path $localFilePath)) {
                 New-Item -ItemType Directory -Path $localFilePath -Force
             }
             Download-FilesRecursively -url $linkUrl -targetDir $localFilePath
