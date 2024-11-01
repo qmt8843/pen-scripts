@@ -6,6 +6,6 @@ echo "\$urlGet = $addr" | cat - setup-powerview.ps1 > tmp.txt && mv tmp.txt setu
 
 git clone https://github.com/samratashok/ADModule
 echo "\$urlGet = $addr" | cat - setup-admodule.ps1 > tmp.txt && mv tmp.txt setup-admodule.ps1
-echo "\$urlGet = C:\Users\robb.stark\test" #| cat - setup-admodule.ps1 > tmp.txt && mv tmp.txt setup-admodule.ps1
+echo '$destGet = C:\\Users\\robb.stark\\test' cat - setup-admodule.ps1 > tmp.txt && mv tmp.txt setup-admodule.ps1
 
 python3 -m http.server 8080
